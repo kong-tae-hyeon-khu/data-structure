@@ -50,6 +50,19 @@ class UnsortedList:
 
             if self.list[i] == find_item :
                 return True
-                
+
         return False
+
+# Iterators
+    def Reset_list(self) :
+        self.current_pos = -1
+
+    def Get_next_item(self) :
+        self.current_pos += 1
+        
+        if self.current_pos >= self.max_items :
+            self.current_pos = 0
+
+        return self.list[self.current_pos]
+
     
