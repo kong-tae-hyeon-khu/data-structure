@@ -7,12 +7,12 @@ class UnsortedList:
         self.length = 0
         self.current_pos = -1
         self.max_items = 100 # 저장할 수 있는 자료의 최대 갯수.
-
+# Transformers
     def Insert_item(self, item) :
         if self.length == self.max_items :
             print("List is Full !")
             return
-        
+
         self.list[self.length] = item
         self.length += 1
 
@@ -28,4 +28,28 @@ class UnsortedList:
                 print("삭제 완료.")
                 return
         print("삭제할 원소가 없습니다.")
+    
+    def Make_empty(self) :
+        self.length = 0
+        self.current_pos = -1
+    
+# Observers
+    def Is_full(self):
+        if self.length == self.max_items :
+            return True
+        else :
+            return False
+
+    def Length_is(self) :
+        return self.length
+
+    def RetrieveItem(self, find_item) :
+        # 정렬되어 있지 않은 리스트에서 원소를 찾는 방법
+        # -> 단순 선형 탐색
+        for i in range(0, self.length) :
+
+            if self.list[i] == find_item :
+                return True
+                
+        return False
     
