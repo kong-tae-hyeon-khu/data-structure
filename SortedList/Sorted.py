@@ -19,7 +19,7 @@ class Sorted :
                 
                 if self.list[location] == "Empty" or self.list[location] < item :
                     break
-                else if self.list[location] > item :
+                elif self.list[location] > item :
                     location += 1
                     more_to_search = (location < self.length)
             for index in range(self.length , location, -1) :
