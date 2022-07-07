@@ -1,12 +1,12 @@
 class Sorted :
     def __init__(self) :
-        self.list = ["Empty" * 100]
+        self.list = ["Empty"] * 100
         self.length = 0
         self.currentPos = -1
         self.max_items = 100  
     
 # Transformers
-    # Insert  : How to use Binary Search.
+    # Insert  : How to use Binary Search ... ?
     # Time Complexity : O(n) 
     def Insert_item(self, item):
         if self.length == self.max_items :
@@ -16,19 +16,51 @@ class Sorted :
             more_to_search = (location < self.length)
 
             while more_to_search :
-                
-                if self.list[location] == "Empty" or self.list[location] < item :
+                if self.list[location] == "Empty" or self.list[location] > item :
                     break
-                elif self.list[location] > item :
+                elif self.list[location] < item :
                     location += 1
                     more_to_search = (location < self.length)
+
             for index in range(self.length , location, -1) :
                 self.list[index] = self.list[index - 1]
             
             self.list[location] = item
             self.length += 1
-# Observers
 
+    # Delete : Using a Binary Search
+    def Delete_item(self, item) : 
+        
+        result = self.Retrieve_item(item)
+
+        if result is -1 :
+            print("item doesn't exist in that list")
+        else :
+            print("Test")
+
+
+# Observers
+    # Using a Binary Serach
+    def Retrieve_item(self, item) : 
+        first = 0
+        last = self.length - 1
+
+        while first <= last :
+
+            mid = int((first + last) / 2 )
+            
+            if self.list[mid] > item :
+                last = mid - 1
+
+            elif self.list[mid] < item :
+                first = mid + 1
+
+            elif self.list[mid] == item :
+                return mid
+
+        
+        return -1
+                 
 
 # Iterators
     def print_elements(self) :
