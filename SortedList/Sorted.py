@@ -2,7 +2,7 @@ class Sorted :
     def __init__(self) :
         self.list = ["Empty"] * 100
         self.length = 0
-        self.currentPos = -1
+        self.current_pos = -1
         self.max_items = 100  
     
 # Transformers
@@ -44,9 +44,15 @@ class Sorted :
                     self.list[index] = self.list[index + 1] # Cover item.
         self.length -= 1
        
+    def Get_next_item(self) :
+        result = self.list[self.current_pos]
+        self.current_pos += 1
+        return result
 
 # Observers
     # Using a Binary Serach
+    # Time Complexity : O(log N)
+    
     def Retrieve_item(self, item) : 
         first = 0
         last = self.length - 1
@@ -63,16 +69,23 @@ class Sorted :
 
             elif self.list[mid] == item :
                 return mid
-
-        
         return -1
                  
+
+    def Length_is(self) :
+        return self.length
+    
+    def Is_full(self) :
+        return self.length == self.max_items
+
 
 # Iterators
     def print_elements(self) :
         for i in range(0, self.length) :
             if self.list[i] == "Empty" :
                 break
+
             else :
                 print(self.list[i], end= ' ')
         print(' ')
+    
