@@ -30,14 +30,20 @@ class Sorted :
 
     # Delete : Using a Binary Search
     def Delete_item(self, item) : 
-        
+
         result = self.Retrieve_item(item)
 
-        if result is -1 :
+        if result == -1 :
             print("item doesn't exist in that list")
+            return
         else :
-            print("Test")
-
+            for index in range(result , self.length) :
+                if index == "Empty" :
+                    break
+                else :
+                    self.list[index] = self.list[index + 1] # Cover item.
+        self.length -= 1
+       
 
 # Observers
     # Using a Binary Serach
@@ -68,4 +74,5 @@ class Sorted :
             if self.list[i] == "Empty" :
                 break
             else :
-                print(self.list[i])
+                print(self.list[i], end= ' ')
+        print(' ')

@@ -13,9 +13,8 @@ test_list.Insert_item(6)
 test_list.print_elements()
 
 test_list.Delete_item(1)
-test_list.Delete_item(5)
-test_list.Delete_item(10)
 test_list.Delete_item(100)
+test_list.Delete_item(6)
 
 test_list.print_elements()
 
